@@ -1,0 +1,181 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "ApiSelector",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "GlobalApis": {
+      "type": "array",
+      "description": "Run all the configurations for this list of APIs",
+      "items": {
+        "$ref": "#/definitions/SelectedApi"
+      }
+    },
+    "GlobalApisWithPath": {
+      "type": "object",
+      "description": "Run all the configurations for this list of APIs too, Here keys (i.e. folder paths) will be concatenated with each Api's FilePath",
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/definitions/SelectedApi"
+        }
+      }
+    },
+    "GlobalTemplates": {
+      "type": "array",
+      "description": "List of languages to be used by all the configurations",
+      "items": {
+        "$ref": "#/definitions/Languages"
+      }
+    },
+    "ExecuteConfigs": {
+      "type": "array",
+      "description": "Select configuration names from the 'Configurations' Dictionary. The selected configurations will be executed.",
+      "items": {
+        "type": "string"
+      }
+    },
+    "Configurations": {
+      "type": "object",
+      "description": "Dictionary of API configurations, here Keys are configuration names.",
+      "additionalProperties": {
+        "$ref": "#/definitions/ApiConfig"
+      }
+    }
+  },
+  "definitions": {
+    "SelectedApi": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "FilePath"
+      ],
+      "properties": {
+        "FilePath": {
+          "type": "string",
+          "description": "Full path of the spec file/directory, or any spec file/directory name in the CI spec directory."
+        },
+        "Merge": {
+          "type": "boolean",
+          "description": "Controls the merging of all the specs in the directory, when the FilePath leads to a directory. Default: false"
+        },
+        "Namespaces": {
+          "type": "object",
+          "description": "Should only present if we want to merge namespaces to the spec specified at FilePath. Here key is the namespace name, while value is its FilePath",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "OnlyForTemplates": {
+          "type": "array",
+          "description": "Restrict code generation for this api to a limited number of languages",
+          "items": {
+            "$ref": "#/definitions/Languages"
+          }
+        }
+      }
+    },
+    "Languages": {
+      "type": "string",
+      "description": "List of supported languages",
+      "x-enumNames": [
+        "cs",
+        "java",
+        "python",
+        "ruby",
+        "go",
+        "php",
+        "ts"
+      ],
+      "enum": [
+        "cs",
+        "java",
+        "python",
+        "ruby",
+        "go",
+        "php",
+        "ts"
+      ]
+    },
+    "ApiConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Apis": {
+          "type": "array",
+          "description": "List of APIs to be generated only for this configuration",
+          "items": {
+            "$ref": "#/definitions/SelectedApi"
+          }
+        },
+        "Templates": {
+          "type": "array",
+          "description": "List of languages to be used only by this configuration",
+          "items": {
+            "$ref": "#/definitions/Languages"
+          }
+        },
+        "UseCiSpecs": {
+          "type": "boolean",
+          "description": "Controls the generation of all the APIs in the CI specs directory, Default: false"
+        },
+        "UseGlobalApis": {
+          "type": "boolean",
+          "description": "Controls the inclusion of global apis in local apis, Default: true"
+        },
+        "UseGlobalTemplates": {
+          "type": "boolean",
+          "description": "Controls the inclusion of global templates in local templates, Default: true"
+        },
+        "OpenAfterGeneration": {
+          "type": "boolean",
+          "description": "Open generated folder or file after generation, Default: false"
+        },
+        "OutputDirPath": {
+          "type": "string",
+          "description": "Path of the folder where Docs or SDKs would be generated, Default: bin/*/*/"
+        },
+        "DirectoryPostFix": {
+          "type": "string",
+          "description": "Postfix added to the SDKs or Docs generated folders, Default: \"\""
+        },
+        "SdksPath": {
+          "type": "string",
+          "description": "Path of SDKs inside the OutputDirPath. Available placeholders are {template}, {sdkName}, and {specName}. Default: {template}\\{sdkName}"
+        },
+        "DocsPath": {
+          "type": "string",
+          "description": "Path of Docs inside the OutputDirPath. Available placeholder is are {sdkName}. Default: DOCS\\{sdkName}"
+        },
+        "SpecWriteFile": {
+          "type": "string",
+          "description": "Path of Specs inside the OutputDirPath. Available placeholder is {sdkName}. Default: Jenkins\\apimatic-{sdkName}"
+        },
+        "ThrowError": {
+          "type": "boolean",
+          "description": "Controlls throwing error on failure, Default: false"
+        },
+        "Sdks": {
+          "type": "boolean",
+          "description": "Controlls the SDKs generation, Default: false"
+        },
+        "WriteExamplesInSdks": {
+          "type": "boolean",
+          "description": "Controlls code samples generation in SDKs, Default: false"
+        },
+        "Docs": {
+          "type": "boolean",
+          "description": "Controlls Docs generation, Default: false"
+        },
+        "HttpDocs": {
+          "type": "boolean",
+          "description": "Controlls Http Docs generation, Default: false"
+        },
+        "WriteApimaticSpec": {
+          "type": "boolean",
+          "description": "Controlls spec writing in apimatic type after validation and transformation, Default: false"
+        }
+      }
+    }
+  }
+}
