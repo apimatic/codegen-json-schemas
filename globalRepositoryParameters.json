@@ -4,6 +4,11 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Selected schema for this file"
+    },
     "EnableRepositoryParams": {
       "type": "boolean",
       "description": "Controls applying the specified RepositoryParameters to all of the generated SDKs and Docs. Default: false"
