@@ -4,6 +4,11 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Selected schema for this file"
+    },
     "CompareWithBranch": {
       "type": "string",
       "description": "Remote branch name. Local SDKs will be generated and compared with this branch of codegen. Default: v3-staging"
