@@ -4,6 +4,11 @@
   "type": "object",
   "additionalProperties": false,
   "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Selected schema for this file"
+    },
     "GlobalApis": {
       "type": "array",
       "description": "Run all the configurations for this list of APIs",
