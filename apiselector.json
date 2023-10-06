@@ -179,6 +179,10 @@
         "WriteApimaticSpec": {
           "type": "boolean",
           "description": "Controlls spec writing in apimatic type after validation and transformation, Default: false"
+        },
+        "WriteFailureReport": {
+          "type": "boolean",
+          "description": "Controlls failure report generation, Default: false"
         }
       }
     }
