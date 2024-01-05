@@ -42,6 +42,12 @@
         "Nullify404": {
           "type": "boolean"
         },
+        "DisableMultipleAuth": {
+          "type": "boolean"
+        },
+        "AddSingleAuthDeprecatedCode": {
+          "type": "boolean"
+        },
         "UseHttpMethodPrefix": {
           "type": "boolean"
         },
