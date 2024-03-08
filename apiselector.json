@@ -152,6 +152,10 @@
           "type": "string",
           "description": "Path of Docs inside the OutputDirPath. Available placeholder is are {sdkName}. Default: DOCS\\{sdkName}"
         },
+        "CodeSampleTemplatesPath": {
+          "type": "string",
+          "description": "Path of CodeSampleTemplates inside the OutputDirPath. Available placeholder is are {template}, {sdkName}, and {specName}. Default: CodeSampleTemplates\\{template}\\{sdkName}"
+        },
         "SpecWriteFile": {
           "type": "string",
           "description": "Path of Specs inside the OutputDirPath. Available placeholder is {sdkName}. Default: Jenkins\\apimatic-{sdkName}"
@@ -175,6 +179,14 @@
         "HttpDocs": {
           "type": "boolean",
           "description": "Controlls Http Docs generation, Default: false"
+        },
+        "CodeSampleTemplates": {
+          "type": "boolean",
+          "description": "Controlls CodeSampleTemplates generation, Default: false"
+        },
+        "HttpCodeSampleTemplates": {
+          "type": "boolean",
+          "description": "Controlls CodeSampleTemplates Docs generation, Default: false"
         },
         "WriteApimaticSpec": {
           "type": "boolean",
