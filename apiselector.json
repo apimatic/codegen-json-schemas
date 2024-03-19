@@ -162,43 +162,43 @@
         },
         "ThrowError": {
           "type": "boolean",
-          "description": "Controlls throwing error on failure, Default: false"
+          "description": "Controls throwing error on failure, Default: false"
         },
         "Sdks": {
           "type": "boolean",
-          "description": "Controlls the SDKs generation, Default: false"
+          "description": "Controls the SDKs generation, Default: false"
         },
         "WriteExamplesInSdks": {
           "type": "boolean",
-          "description": "Controlls code samples generation in SDKs, Default: false"
+          "description": "Controls code samples generation in SDKs, Default: false"
         },
         "Docs": {
           "type": "boolean",
-          "description": "Controlls Docs generation, Default: false"
+          "description": "Controls Docs generation, Default: false"
         },
         "HttpDocs": {
           "type": "boolean",
-          "description": "Controlls Http Docs generation, Default: false"
+          "description": "Controls Http Docs generation, Default: false"
         },
         "CodeSampleTemplates": {
           "type": "boolean",
-          "description": "Controlls CodeSampleTemplates generation, Default: false"
+          "description": "Controls CodeSampleTemplates generation, Default: false"
         },
         "HttpCodeSampleTemplates": {
           "type": "boolean",
-          "description": "Controlls CodeSampleTemplates Docs generation, Default: false"
+          "description": "Controls CodeSampleTemplates Docs generation, Default: false"
         },
         "WriteLiquidJSRenderedOutputForCodeSampleTemplates": {
           "type": "boolean",
-          "description": "Controlls rendered CodeSampleTemplates generation, Default: false"
+          "description": "Controls rendered CodeSampleTemplates generation, Default: false"
         },
         "WriteApimaticSpec": {
           "type": "boolean",
-          "description": "Controlls spec writing in apimatic type after validation and transformation, Default: false"
+          "description": "Controls spec writing in apimatic type after validation and transformation, Default: false"
         },
         "WriteFailureReport": {
           "type": "boolean",
-          "description": "Controlls failure report generation, Default: false"
+          "description": "Controls failure report generation, Default: false"
         }
       }
     }
