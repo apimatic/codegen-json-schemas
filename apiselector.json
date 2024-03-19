@@ -188,6 +188,10 @@
           "type": "boolean",
           "description": "Controlls CodeSampleTemplates Docs generation, Default: false"
         },
+        "WriteLiquidJSRenderedOutputForCodeSampleTemplates": {
+          "type": "boolean",
+          "description": "Controlls rendered CodeSampleTemplates generation, Default: false"
+        },
         "WriteApimaticSpec": {
           "type": "boolean",
           "description": "Controlls spec writing in apimatic type after validation and transformation, Default: false"
