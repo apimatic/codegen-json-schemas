@@ -199,6 +199,10 @@
         "WriteFailureReport": {
           "type": "boolean",
           "description": "Controls failure report generation, Default: false"
+        },
+        "WriteMinimalLogs": {
+          "type": "boolean",
+          "description": "Controls writing a quieter version of success logs to the console, Default: false"
         }
       }
     }
