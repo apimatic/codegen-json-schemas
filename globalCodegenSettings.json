@@ -48,6 +48,9 @@
         "AddSingleAuthDeprecatedCode": {
           "type": "boolean"
         },
+        "UseSecuritySchemeNameForSingleAuth": {
+          "type": "boolean"
+        },
         "UseHttpMethodPrefix": {
           "type": "boolean"
         },
