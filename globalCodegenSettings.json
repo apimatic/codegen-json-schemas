@@ -42,6 +42,9 @@
         "Nullify404": {
           "type": "boolean"
         },
+        "ForceKeywordArgsInRuby": {
+          "type": "boolean"
+        },
         "DisableMultipleAuth": {
           "type": "boolean"
         },
