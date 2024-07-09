@@ -196,6 +196,10 @@
           "type": "boolean",
           "description": "Controls spec writing in apimatic type after validation and transformation, Default: false"
         },
+        "ValidateSpec": {
+          "type": "boolean",
+          "description": "Controls spec validation and transformation. You can also use WriteApimaticSpec to validate and write the result as well , Default: false"
+        },
         "WriteFailureReport": {
           "type": "boolean",
           "description": "Controls failure report generation, Default: false"
