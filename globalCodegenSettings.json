@@ -42,6 +42,9 @@
         "Nullify404": {
           "type": "boolean"
         },
+        "NullifyEmptyResponses": {
+          "type": "boolean"
+        },
         "EnableModelKeywordArgsInRuby": {
           "type": "boolean"
         },
