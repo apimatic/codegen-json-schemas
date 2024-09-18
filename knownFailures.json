@@ -1,12 +1,14 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "type": "object",
-  "patternProperties": {
+  "properties": {
     "$schema": {
       "type": "string",
       "format": "uri",
       "description": "Selected schema for this file"
-    },
+    }
+  },
+  "patternProperties": {
     ".*": {
       "$ref": "#/definitions/KnownFailures"
     }
