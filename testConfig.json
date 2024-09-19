@@ -23,12 +23,36 @@
   "definitions": {
     "DisabledTestModes": {
       "type": "object",
-      "patternProperties": {
-        ".*": {
+      "properties": {
+        "cs": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "java": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "python": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "php": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "ruby": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "ts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "go": {
           "type": "array",
           "items": { "$ref": "#/definitions/TestMode" }
         }
-      },
+      }
       "additionalProperties": false
     },
     "DisabledUnitTests": {
@@ -36,12 +60,28 @@
       "patternProperties": {
         ".*": {
           "type": "object",
-          "description": "Provide the API Call type i.e. GET, POST, etc as keys"
-          "patternProperties": {
-            "^(GET|POST|PUT|DELETE|PATCH)$": {
+          "description": "Provide the API Call type i.e. GET, POST, etc as keys",
+          "properties": {
+            "GET": {
               "type": "array",
               "items": { "$ref": "#/definitions/Language" }
-            }
+            },
+            "POST": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Language" }
+            },
+            "PUT": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Language" }
+            },
+            "DELETE": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Language" }
+            },
+            "PATCH": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Language" }
+            },
           },
           "additionalProperties": false
         }
