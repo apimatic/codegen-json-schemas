@@ -1,5 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "TEST-CONFIG",
   "type": "object",
   "properties": {
     "$schema": {
@@ -52,7 +53,7 @@
           "type": "array",
           "items": { "$ref": "#/definitions/TestMode" }
         }
-      }
+      },
       "additionalProperties": false
     },
     "DisabledUnitTests": {
