@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "title": "TEST-CONFIG",
+  "title": "TEST-CONFIG-SCHEMA",
   "type": "object",
   "properties": {
     "$schema": {
@@ -9,8 +9,13 @@
       "description": "Selected schema for this file"
     },
     "DisabledTestModes": {
-      "$ref": "#/definitions/DisabledTestModes",
-      "description": "Disable the test modes language by language"
+      "type": "object",
+      "description": "Disable the test modes language by language",
+      "patternProperties": {
+        ".*": {
+          "$ref": "#/definitions/ApiCall"
+        }
+      }
     },
     "DisabledUnitTests": {
       "$ref": "#/definitions/DisabledUnitTests",
@@ -56,35 +61,29 @@
       },
       "additionalProperties": false
     },
-    "DisabledUnitTests": {
+    "ApiCall": {
       "type": "object",
-      "patternProperties": {
-        ".*": {
-          "type": "object",
-          "description": "Provide the API Call type i.e. GET, POST, etc as keys",
-          "properties": {
-            "GET": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/Language" }
-            },
-            "POST": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/Language" }
-            },
-            "PUT": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/Language" }
-            },
-            "DELETE": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/Language" }
-            },
-            "PATCH": {
-              "type": "array",
-              "items": { "$ref": "#/definitions/Language" }
-            }
-          },
-          "additionalProperties": false
+      "description": "Provide the API Call type i.e. GET, POST, etc as keys",
+      "properties": {
+        "GET": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "POST": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "PUT": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "DELETE": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "PATCH": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
         }
       },
       "additionalProperties": false
