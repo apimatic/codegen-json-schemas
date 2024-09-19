@@ -1,0 +1,119 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "TEST-CONFIG-SCHEMA",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Selected schema for this file"
+    },
+    "DisabledTestModes": {
+      "$ref": "#/definitions/DisabledTestModes",
+      "description": "Disable the test modes language by language"
+    },
+    "DisabledUnitTests": {
+      "type": "object",
+      "description": "Disable the unit tests generation by providing `paths` as keys",
+      "additionalProperties": false,
+      "patternProperties": {
+        ".*": {
+          "$ref": "#/definitions/ApiCall"
+        }
+      }
+    },
+    "GenerateTestCasesWithSampleValues": {
+      "type": "boolean",
+      "description": "To control the generation of unit tests using sample values, Default: false"
+    }
+  },
+  "definitions": {
+    "DisabledTestModes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "cs": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "java": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "python": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "php": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "ruby": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "ts": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        },
+        "go": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        }
+      }
+    },
+    "TestMode": {
+      "type": "string",
+      "enum": [
+        "install",
+        "compile-codesamples",
+        "lint-codesamples",
+        "format-codesamples",
+        "compile",
+        "lint",
+        "format",
+        "test"
+      ]
+    },
+    "ApiCall": {
+      "type": "object",
+      "description": "Provide the API Call type i.e. GET, POST, etc as keys",
+      "additionalProperties": false,
+      "properties": {
+        "GET": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "POST": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "PUT": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "DELETE": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        },
+        "PATCH": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/Language" }
+        }
+      }
+    },
+    "Language": {
+      "type": "string",
+      "enum": [
+        "java",
+        "cs",
+        "php",
+        "python",
+        "ruby",
+        "ts",
+        "go"
+      ]
+    }
+  }
+}
