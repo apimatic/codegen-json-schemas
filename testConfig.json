@@ -2,6 +2,7 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "TEST-CONFIG-SCHEMA",
   "type": "object",
+  "additionalProperties": false,
   "properties": {
     "$schema": {
       "type": "string",
@@ -9,17 +10,17 @@
       "description": "Selected schema for this file"
     },
     "DisabledTestModes": {
+      "$ref": "#/definitions/DisabledTestModes",
+      "description": "Disable the test modes language by language"
+    },
+    "DisabledUnitTests": {
       "type": "object",
-      "description": "Disable the test modes language by language",
+      "description": "Disable the unit tests generation by providing `paths` as keys",
       "patternProperties": {
         ".*": {
           "$ref": "#/definitions/ApiCall"
         }
       }
-    },
-    "DisabledUnitTests": {
-      "$ref": "#/definitions/DisabledUnitTests",
-      "description": "Disable the unit tests generation by providing `paths` as keys"
     },
     "GenerateTestCasesWithSampleValues": {
       "type": "boolean",
@@ -29,6 +30,7 @@
   "definitions": {
     "DisabledTestModes": {
       "type": "object",
+      "additionalProperties": false,
       "properties": {
         "cs": {
           "type": "array",
@@ -58,12 +60,25 @@
           "type": "array",
           "items": { "$ref": "#/definitions/TestMode" }
         }
-      },
-      "additionalProperties": false
+      }
+    },
+    "TestMode": {
+      "type": "string",
+      "enum": [
+        "install",
+        "compile-codesamples",
+        "lint-codesamples",
+        "format-codesamples",
+        "compile",
+        "lint",
+        "format",
+        "test"
+      ]
     },
     "ApiCall": {
       "type": "object",
       "description": "Provide the API Call type i.e. GET, POST, etc as keys",
+      "additionalProperties": false,
       "properties": {
         "GET": {
           "type": "array",
@@ -85,21 +100,7 @@
           "type": "array",
           "items": { "$ref": "#/definitions/Language" }
         }
-      },
-      "additionalProperties": false
-    },
-    "TestMode": {
-      "type": "string",
-      "enum": [
-        "install",
-        "compile-codesamples",
-        "lint-codesamples",
-        "format-codesamples",
-        "compile",
-        "lint",
-        "format",
-        "test"
-      ]
+      }
     },
     "Language": {
       "type": "string",
@@ -113,6 +114,5 @@
         "go"
       ]
     }
-  },
-  "additionalProperties": false
+  }
 }
