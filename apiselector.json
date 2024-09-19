@@ -172,6 +172,10 @@
           "type": "boolean",
           "description": "Controls code samples generation in SDKs, Default: false"
         },
+        "WriteDisabledTestModes": {
+          "type": "boolean",
+          "description": "Controls DisabledTestModes configuration generation while import, Default: false"
+        },
         "Docs": {
           "type": "boolean",
           "description": "Controls Docs generation, Default: false"
