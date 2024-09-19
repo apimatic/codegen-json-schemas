@@ -1,0 +1,78 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Selected schema for this file"
+    },
+    "DisabledTestModes": {
+      "$ref": "#/definitions/DisabledTestModes",
+      "description": "Disable the test modes language by language"
+    },
+    "DisabledUnitTests": {
+      "$ref": "#/definitions/DisabledUnitTests",
+      "description": "Disable the unit tests generation by providing `paths` as keys"
+    },
+    "GenerateTestCasesWithSampleValues": {
+      "type": "boolean",
+      "description": "To control the generation of unit tests using sample values, Default: false"
+    }
+  },
+  "definitions": {
+    "DisabledTestModes": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/TestMode" }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DisabledUnitTests": {
+      "type": "object",
+      "patternProperties": {
+        ".*": {
+          "type": "object",
+          "description": "Provide the API Call type i.e. GET, POST, etc as keys"
+          "patternProperties": {
+            "^(GET|POST|PUT|DELETE|PATCH)$": {
+              "type": "array",
+              "items": { "$ref": "#/definitions/Language" }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "TestMode": {
+      "type": "string",
+      "enum": [
+        "install",
+        "compile-codesamples",
+        "lint-codesamples",
+        "format-codesamples",
+        "compile",
+        "lint",
+        "format",
+        "test"
+      ]
+    },
+    "Language": {
+      "type": "string",
+      "enum": [
+        "java",
+        "cs",
+        "php",
+        "python",
+        "ruby",
+        "ts",
+        "go"
+      ]
+    }
+  },
+  "additionalProperties": false
+}
