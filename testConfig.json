@@ -82,7 +82,7 @@
             "PATCH": {
               "type": "array",
               "items": { "$ref": "#/definitions/Language" }
-            },
+            }
           },
           "additionalProperties": false
         }
