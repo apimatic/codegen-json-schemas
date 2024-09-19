@@ -16,6 +16,7 @@
     "DisabledUnitTests": {
       "type": "object",
       "description": "Disable the unit tests generation by providing `paths` as keys",
+      "additionalProperties": false,
       "patternProperties": {
         ".*": {
           "$ref": "#/definitions/ApiCall"
