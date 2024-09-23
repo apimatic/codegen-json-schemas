@@ -66,9 +66,9 @@
     "TestMode": {
       "type": "string",
       "enum": [
-        "compile-codesamples",
-        "lint-codesamples",
-        "format-codesamples",
+        "compile_code_samples",
+        "lint_code_samples",
+        "format_code_samples",
         "compile",
         "lint",
         "format",
