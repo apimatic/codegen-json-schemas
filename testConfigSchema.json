@@ -35,35 +35,35 @@
       "properties": {
         "cs": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModeCs" }
         },
         "java": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModeJava" }
         },
         "python": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModePython" }
         },
         "php": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModePhp" }
         },
         "ruby": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModeRuby" }
         },
         "ts": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModeTs" }
         },
         "go": {
           "type": "array",
-          "items": { "$ref": "#/definitions/TestMode" }
+          "items": { "$ref": "#/definitions/TestModeGo" }
         }
       }
     },
-    "TestMode": {
+    "TestModeTs": {
       "type": "string",
       "enum": [
         "compile_code_samples",
@@ -72,6 +72,60 @@
         "compile",
         "lint",
         "format",
+        "test"
+      ]
+    },
+    "TestModeGo": {
+      "type": "string",
+      "enum": [
+        "compile_code_samples",
+        "lint_code_samples",
+        "compile",
+        "lint",
+        "test"
+      ]
+    },
+    "TestModeRuby": {
+      "type": "string",
+      "enum": [
+        "lint_code_samples",
+        "lint",
+        "test"
+      ]
+    },
+    "TestModePython": {
+      "type": "string",
+      "enum": [
+        "compile_code_samples",
+        "lint_code_samples",
+        "compile",
+        "test"
+      ]
+    },
+    "TestModePhp": {
+      "type": "string",
+      "enum": [
+        "compile_code_samples",
+        "lint_code_samples",
+        "compile",
+        "lint",
+        "test"
+      ]
+    },
+    "TestModeJava": {
+      "type": "string",
+      "enum": [
+        "compile_code_samples",
+        "lint_code_samples",
+        "compile",
+        "test"
+      ]
+    },
+    "TestModeCs": {
+      "type": "string",
+      "enum": [
+        "compile_code_samples",
+        "compile",
         "test"
       ]
     },
