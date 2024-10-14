@@ -45,6 +45,9 @@
         "NullifyEmptyResponses": {
           "type": "boolean"
         },
+        "EnforceStandardizedCasing": {
+          "type": "boolean"
+        },
         "EnableModelKeywordArgsInRuby": {
           "type": "boolean"
         },
