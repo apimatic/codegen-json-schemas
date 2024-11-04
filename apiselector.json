@@ -40,6 +40,10 @@
         "type": "string"
       }
     },
+    "ApiSelectionFilter": {
+      "type": "string",
+      "description": "Only execute this apiSelector for the specs where the spec names are matching this ApiSelectionFilter regex. Default `*` i.e. run for all the selected specs."
+    },
     "Configurations": {
       "type": "object",
       "description": "Dictionary of API configurations, here Keys are configuration names.",
@@ -150,15 +154,19 @@
         },
         "DocsPath": {
           "type": "string",
-          "description": "Path of Docs inside the OutputDirPath. Available placeholder is are {sdkName}. Default: DOCS\\{sdkName}"
+          "description": "Path of Docs inside the OutputDirPath. Available placeholders are {sdkName}. Default: DOCS\\{sdkName}"
         },
         "CodeSampleTemplatesPath": {
           "type": "string",
-          "description": "Path of CodeSampleTemplates inside the OutputDirPath. Available placeholder is are {template}, {sdkName}, and {specName}. Default: CodeSampleTemplates\\{template}\\{sdkName}"
+          "description": "Path of CodeSampleTemplates inside the OutputDirPath. Available placeholders are {template}, {sdkName}, and {specName}. Default: CodeSampleTemplates\\{template}\\{sdkName}"
+        },
+        "CodeSampleApiDataPath": {
+          "type": "string",
+          "description": "Path of CodeSampleApiData inside the OutputDirPath. Available placeholders are {sdkName}, and {specName}. Default: CodeSampleApiData\\{specName}"
         },
         "SpecWriteFile": {
           "type": "string",
-          "description": "Path of Specs inside the OutputDirPath. Available placeholder is {sdkName}. Default: Jenkins\\apimatic-{sdkName}"
+          "description": "Path of Specs inside the OutputDirPath. Available placeholders are {sdkName}, and {specName}. Default: Jenkins\\apimatic-{specName}"
         },
         "ThrowError": {
           "type": "boolean",
@@ -190,11 +198,19 @@
         },
         "HttpCodeSampleTemplates": {
           "type": "boolean",
-          "description": "Controls CodeSampleTemplates Docs generation, Default: false"
+          "description": "Controls CodeSampleTemplates generation for Http, Default: false"
         },
         "WriteLiquidJSRenderedOutputForCodeSampleTemplates": {
           "type": "boolean",
           "description": "Controls rendered CodeSampleTemplates generation, Default: false"
+        },
+        "CodeSampleApiData": {
+          "type": "boolean",
+          "description": "Controls CodeSampleApiData generation, Default: false"
+        },
+        "HttpCodeSampleApiData": {
+          "type": "boolean",
+          "description": "Controls CodeSampleApiData generation for Http, Default: false"
         },
         "WriteApimaticSpec": {
           "type": "boolean",
