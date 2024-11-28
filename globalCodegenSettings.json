@@ -241,6 +241,9 @@
         "EnableAdditionalModelProperties": {
           "type": "boolean"
         },
+        "ExtendedAdditionalPropertiesSupport": {
+          "type": "boolean"
+        },
         "PreserveParameterOrder": {
           "type": "boolean"
         },
