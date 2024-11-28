@@ -23,6 +23,17 @@
         }
       ],
       "description": "Repository parameters dictionaries for each LanguageTemplate. These parameters will be used as Package Publishing Settings in SDKs and Docs. Default: null"
+    },
+    "SdkPublishingDocParams": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/PublishingDocParams"
+        }
+      ],
+      "description": "Published documentation metadata. When generating SDKs for publishing packages or publishing source code, we need to create absolute URLs to documentation. Usually, this documentation will either be available on the published source repo or on a publicly available DX Portal."
     }
   },
   "definitions": {
@@ -957,6 +968,36 @@
             "null",
             "string"
           ]
+        }
+      }
+    },
+    "PublishingDocParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SourceParams": {
+          "$ref": "#/definitions/SourceParams"
+        },
+        "PortalParams": {
+          "$ref": "#/definitions/PortalParams"
+        }
+      }
+    },
+    "SourceParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Url": {
+          "type": "string"
+        }
+      }
+    },
+    "PortalParams": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Url": {
+          "type": "string"
         }
       }
     }
