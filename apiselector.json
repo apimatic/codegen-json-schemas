@@ -140,6 +140,10 @@
           "type": "boolean",
           "description": "Open generated folder or file after generation, Default: false"
         },
+        "MaxWindowsToOpenAfterGeneration": {
+          "type": "integer",
+          "description": "Max no. of windows that can be opened after executing this config. Used with OpenAfterGeneration, Default: 10"
+        },
         "OutputDirPath": {
           "type": "string",
           "description": "Path of the folder where Docs or SDKs would be generated, Default: bin/*/*/"
