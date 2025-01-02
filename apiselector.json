@@ -44,9 +44,9 @@
       "type": "string",
       "description": "Only execute this apiSelector for the specs where the spec names are matching this ApiSelectionFilter regex. Default `*` i.e. run for all the selected specs."
     },
-    "ApiCacheDirectory": {
-      "type": "string",
-      "description": "Cache of the imported API specs will be saved to this directory. Default `null`."
+    "DisableApiCache": {
+      "type": "boolean",
+      "description": "Should disable cache of the imported API specs. Default `false` (i.e. Cache enabled)."
     },
     "Configurations": {
       "type": "object",
