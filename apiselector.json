@@ -146,7 +146,7 @@
         },
         "OpenSdkWithCommand": {
           "type": "string",
-          "description": "A command or path to an executable. The generated SDK's path will be passed as an argument to it. For example if it's 'code' and the SDK is generated at /home/sdks/my-sdk, the command `code /home/sdks/my-sdk` will be run after generation. NOTE: On Windows, you need to give the full path to the executable/command."
+          "description": "A command or path to an executable. The generated SDK's path will be passed as an argument to it. For example if it's 'code' and the SDK is generated at /home/sdks/my-sdk, the command `code /home/sdks/my-sdk` will be run after generation. NOTE: On Windows, you need to give the full path to the executable/command. For example, for VS Code it would be something like C:\Users\<username>\AppData\Local\Programs\Microsoft VS Code\bin\code.cmd"
         },
         "MaxWindowsToOpenAfterGeneration": {
           "type": "integer",
