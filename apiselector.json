@@ -144,6 +144,10 @@
           "type": "boolean",
           "description": "Open generated folder or file after generation, Default: false"
         },
+        "OpenSdkWithCommand": {
+          "type": "string",
+          "description": "A command or path to an executable. The generated SDK's path will be passed as an argument to it. For example if it's "code" and the SDK is generated at /home/sdks/my-sdk, the command `code /home/sdks/my-sdk` will be run after generation. NOTE: On Windows, you need to give the full path to the executable/command."
+        },
         "MaxWindowsToOpenAfterGeneration": {
           "type": "integer",
           "description": "Max no. of windows that can be opened after executing this config. Used with OpenAfterGeneration, Default: 10"
