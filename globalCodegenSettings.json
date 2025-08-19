@@ -470,6 +470,10 @@
         "PascalCaseEnumForTypeScript": {
           "type": "boolean"
         },
+        "GenerateMetadataForTypeScript": {
+          "type": "boolean",
+          "description": "Generate metadata in the TS SDK which allows for dynamically discovering endpoints at runtime and calling them."
+        },
         "EnableExperimentalTypeCombinatorGeneration": {
           "type": "boolean"
         },
