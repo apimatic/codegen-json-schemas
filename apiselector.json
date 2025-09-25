@@ -204,6 +204,10 @@
           "type": "boolean",
           "description": "Controls Http Docs generation, Default: false"
         },
+        "DocsWithToc": {
+          "type": "boolean",
+          "description": "Controls the Docs generation with or without TOC, Default: false (without TOC)"
+        },
         "CodeSampleTemplates": {
           "type": "boolean",
           "description": "Controls CodeSampleTemplates generation, Default: false"
