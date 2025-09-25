@@ -208,6 +208,10 @@
           "type": "boolean",
           "description": "Controls the Docs generation with or without TOC, Default: false (without TOC)"
         },
+        "TocContentDirPath": {
+          "type": "string",
+          "description": "Path of the parent of input content directory, Default: Settings\\Local\\ (Or Settings\\ if local directory is missing)"
+        },
         "CodeSampleTemplates": {
           "type": "boolean",
           "description": "Controls CodeSampleTemplates generation, Default: false"
