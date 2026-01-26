@@ -42,6 +42,9 @@
         "Nullify404": {
           "type": "boolean"
         },
+        "PhpMapErrorTypesInCompleteResponse": {
+          "type": "boolean"
+        },
         "NullifyEmptyResponses": {
           "type": "boolean"
         },
