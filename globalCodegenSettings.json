@@ -488,6 +488,17 @@
           "additionalProperties": {
             "type": "string"
           }
+        },
+        "ConfigureComponentSorting": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/ConfigureComponentSorting"
+            }
+          ],
+          "description": "Configures sorting behavior for various components like endpoints, webhooks, callbacks, and models."
         }
       }
     },
@@ -659,6 +670,75 @@
         "Compile",
         "Test"
       ]
+    },
+    "ComponentSortingMode": {
+      "type": "string",
+      "description": "Defines the sorting strategy for component groups.",
+      "x-enumNames": [
+        "None",
+        "Alphabetical",
+        "HttpMethod"
+      ],
+      "enum": [
+        "None",
+        "Alphabetical",
+        "HttpMethod"
+      ]
+    },
+    "ConfigureComponentSorting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "SortEndpointGroups": {
+          "type": "boolean",
+          "description": "Whether to sort endpoint groups. Default: false"
+        },
+        "EndpointSorting": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/ComponentSortingMode"
+            }
+          ],
+          "description": "Sorting strategy for endpoints within a group. Options: None, Alphabetical, HttpMethod. Default: None"
+        },
+        "SortWebhookGroups": {
+          "type": "boolean",
+          "description": "Whether to sort webhook groups. Default: false"
+        },
+        "SortCallbackGroups": {
+          "type": "boolean",
+          "description": "Whether to sort callback groups. Default: false"
+        },
+        "WebhookEventsSorting": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/ComponentSortingMode"
+            }
+          ],
+          "description": "Sorting strategy for webhook events within a group. Options: None, Alphabetical, HttpMethod. Default: None"
+        },
+        "CallbackEventsSorting": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/ComponentSortingMode"
+            }
+          ],
+          "description": "Sorting strategy for callback events within a group. Options: None, Alphabetical, HttpMethod. Default: None"
+        },
+        "SortModels": {
+          "type": "boolean",
+          "description": "Whether to sort models. Default: false"
+        }
+      }
     }
   }
 }
