@@ -24,6 +24,17 @@
       ],
       "description": "Repository parameters dictionaries for each LanguageTemplate. These parameters will be used as Package Publishing Settings in SDKs and Docs. Default: null"
     },
+    "LanguageSettings": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/LanguageSettings"
+        }
+      ],
+      "description": "Language-specific package settings for each supported template. Default: null"
+    },
     "SdkPublishingDocParams": {
       "oneOf": [
         {
@@ -37,6 +48,145 @@
     }
   },
   "definitions": {
+    "LanguageSettings": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PHP_GENERIC_LIB_V2": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/PhpLanguageConfig"
+            }
+          ],
+          "description": "Language settings for PHP. Default: null"
+        },
+        "CS_NET_STANDARD_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/BaseLanguageConfig"
+            }
+          ],
+          "description": "Language settings for C#. Default: null"
+        },
+        "JAVA_ECLIPSE_JRE_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/JavaLanguageConfig"
+            }
+          ],
+          "description": "Language settings for Java. Default: null"
+        },
+        "PYTHON_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/BaseLanguageConfig"
+            }
+          ],
+          "description": "Language settings for Python. Default: null"
+        },
+        "RUBY_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/BaseLanguageConfig"
+            }
+          ],
+          "description": "Language settings for Ruby. Default: null"
+        },
+        "GO_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/BaseLanguageConfig"
+            }
+          ],
+          "description": "Language settings for GO. Default: null"
+        },
+        "TS_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/BaseLanguageConfig"
+            }
+          ],
+          "description": "Language settings for TypeScript. Default: null"
+        }
+      }
+    },
+    "BaseLanguageConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PackageName",
+        "Version"
+      ],
+      "properties": {
+        "PackageName": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        }
+      }
+    },
+    "PhpLanguageConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PackageName",
+        "Version",
+        "VendorName"
+      ],
+      "properties": {
+        "PackageName": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "VendorName": {
+          "type": "string"
+        }
+      }
+    },
+    "JavaLanguageConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "PackageName",
+        "Version",
+        "GroupId"
+      ],
+      "properties": {
+        "PackageName": {
+          "type": "string"
+        },
+        "Version": {
+          "type": "string"
+        },
+        "GroupId": {
+          "type": "string"
+        }
+      }
+    },
     "RepositoryParameters": {
       "type": "object",
       "additionalProperties": false,
