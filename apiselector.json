@@ -132,6 +132,10 @@
           "type": "boolean",
           "description": "Controls the generation of all the APIs in the CI specs directory, Default: false"
         },
+        "UseAllSpecs": {
+          "type": "boolean",
+          "description": "Controls the generation of all the APIs in the CI specs directory including ignored specs, Default: false"
+        },
         "UseGlobalApis": {
           "type": "boolean",
           "description": "Controls the inclusion of global apis in local apis, Default: true"
