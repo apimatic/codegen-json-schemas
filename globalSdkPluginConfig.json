@@ -1,0 +1,197 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "SdkPluginConfigSettings",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "format": "uri",
+      "description": "Selected schema for this file"
+    },
+    "EnableSdkPluginConfig": {
+      "type": "boolean",
+      "description": "Controls applying the specified SdkPluginConfigs to generated context plugins. Default: false"
+    },
+    "SdkPluginConfigs": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/definitions/SdkPluginConfigs"
+        }
+      ],
+      "description": "Context plugin configuration for each LanguageTemplate. Any field left out falls back to a value derived from the API spec. Default: null"
+    }
+  },
+  "definitions": {
+    "SdkPluginConfigs": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PHP_GENERIC_LIB_V2": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the PHP SDK"
+        },
+        "CS_NET_STANDARD_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the C# SDK"
+        },
+        "JAVA_ECLIPSE_JRE_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the Java SDK"
+        },
+        "PYTHON_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the Python SDK"
+        },
+        "RUBY_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the Ruby SDK"
+        },
+        "GO_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the Go SDK"
+        },
+        "TS_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPluginConfig"
+            }
+          ],
+          "description": "Context plugin configuration for the TypeScript SDK"
+        }
+      }
+    },
+    "SdkPluginConfig": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "PluginId": {
+          "type": "string",
+          "description": "Plugin manifest \"name\". Must be lowercase alphanumerics separated by hyphens. Default: a slug derived from the API name"
+        },
+        "PluginName": {
+          "type": "string",
+          "description": "Plugin manifest \"displayName\". Default: \"{ApiName} SDK\""
+        },
+        "PluginVersion": {
+          "type": "string",
+          "description": "Plugin manifest \"version\". This is the plugin's own version, not the SDK's. Default: 0.1.0"
+        },
+        "Author": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/PluginAuthor"
+            }
+          ],
+          "description": "Plugin author. Name and email resolve together: supplying a name without an email omits the email rather than inheriting the default one. Default: APIMatic"
+        },
+        "License": {
+          "type": "string",
+          "description": "Plugin manifest \"license\". Default: MIT"
+        },
+        "Homepage": {
+          "type": "string",
+          "description": "Plugin manifest \"homepage\". Default: https://www.apimatic.io"
+        },
+        "PluginRepository": {
+          "type": "string",
+          "description": "Plugin manifest \"repository\" — where the plugin itself is published. Omitted from the manifest entirely when not supplied; there is deliberately no default, since an inherited value would point every plugin at somebody else's repository."
+        },
+        "Sdk": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPackage"
+            }
+          ],
+          "description": "Where the SDK this plugin documents can be obtained"
+        }
+      }
+    },
+    "PluginAuthor": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Name": {
+          "type": "string",
+          "description": "Author name"
+        },
+        "Email": {
+          "type": "string",
+          "description": "Author email"
+        }
+      }
+    },
+    "SdkPackage": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "Repository": {
+          "type": "string",
+          "description": "Source repository of the generated SDK, when it is published to one"
+        },
+        "Name": {
+          "type": "string",
+          "description": "Published package id. Overrides the package name the generator derives, since this is what a consumer actually installs. Default: the generated package name"
+        },
+        "Url": {
+          "type": "string",
+          "description": "Direct download or registry URL for the package. When present it becomes the install command the plugin's skills instruct against."
+        }
+      }
+    }
+  }
+}
