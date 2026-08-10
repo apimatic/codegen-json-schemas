@@ -172,6 +172,18 @@
           "type": "string",
           "description": "Path of Docs inside the OutputDirPath. Available placeholders are {sdkName}. Default: DOCS\\{sdkName}"
         },
+        "TrainingDataPath": {
+          "type": "string",
+          "description": "Path of TrainingData inside the OutputDirPath. Available placeholders are {sdkName}, and {specName}. Default: TrainingData\\{sdkName}"
+        },
+        "McpServersPath": {
+          "type": "string",
+          "description": "Path of MCP Servers inside the OutputDirPath. Available placeholders are {sdkName}, and {specName}. Default: McpServers\\{sdkName}"
+        },
+        "ContextPluginsPath": {
+          "type": "string",
+          "description": "Path of Context Plugins inside the OutputDirPath. Available placeholders are {sdkName}, and {specName}. Default: ContextPlugins\\{sdkName}"
+        },
         "CodeSampleTemplatesPath": {
           "type": "string",
           "description": "Path of CodeSampleTemplates inside the OutputDirPath. Available placeholders are {template}, {sdkName}, and {specName}. Default: CodeSampleTemplates\\{template}\\{sdkName}"
@@ -192,6 +204,14 @@
           "type": "boolean",
           "description": "Controls the SDKs generation, Default: false"
         },
+        "McpServers": {
+          "type": "boolean",
+          "description": "Controls the MCP Server generation, Default: false"
+        },
+        "ContextPlugins": {
+          "type": "boolean",
+          "description": "Controls the Context Plugin generation, Default: false"
+        },
         "WriteExamplesInSdks": {
           "type": "boolean",
           "description": "Controls code samples generation in SDKs, Default: false"
@@ -204,6 +224,14 @@
           "type": "boolean",
           "description": "Controls Docs generation, Default: false"
         },
+        "TrainingData": {
+          "type": "boolean",
+          "description": "Controls TrainingData generation, Default: false"
+        },
+        "HttpTrainingData": {
+          "type": "boolean",
+          "description": "Controls Http TrainingData generation, Default: false"
+        },
         "HttpDocs": {
           "type": "boolean",
           "description": "Controls Http Docs generation, Default: false"
@@ -211,6 +239,10 @@
         "DocsWithToc": {
           "type": "boolean",
           "description": "Controls the Docs generation with or without TOC, Default: false (without TOC)"
+        },
+        "TocContentDirPath": {
+          "type": "string",
+          "description": "Path of the directory holding TOC content files, Default: Settings\\Local\\ (Or Settings\\ if local directory is missing)"
         },
         "SdksWithCustomizations": {
           "type": "boolean",
@@ -255,6 +287,17 @@
         "WriteMinimalLogs": {
           "type": "boolean",
           "description": "Controls writing a quieter version of success logs to the console, Default: false"
+        },
+        "Customizations": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Customizations applied to every API in this configuration, Default: []"
+        },
+        "CodeGenSettings": {
+          "type": "object",
+          "description": "CodeGenSettings overrides applied to every API in this configuration. Overridden by globalCodegenSettings.json when EnableCodeGenSettings is true. Default: null"
         }
       }
     }
