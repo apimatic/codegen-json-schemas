@@ -11,7 +11,7 @@
     },
     "EnableSdkPluginConfig": {
       "type": "boolean",
-      "description": "Controls applying the specified SdkPluginConfigs to generated context plugins. Default: false"
+      "description": "Controls applying the specified SdkPluginConfigs to generated skill packs. Default: false"
     },
     "SdkPluginConfigs": {
       "oneOf": [
@@ -22,7 +22,7 @@
           "$ref": "#/definitions/SdkPluginConfigs"
         }
       ],
-      "description": "Context plugin configuration for each LanguageTemplate. Any field left out falls back to a value derived from the API spec. Default: null"
+      "description": "Published SDK package coordinates for each LanguageTemplate. Any field left out falls back to a value derived from the generated SDK. Default: null"
     }
   },
   "definitions": {
@@ -36,119 +36,12 @@
               "type": "null"
             },
             {
-              "$ref": "#/definitions/SdkPluginConfig"
+              "$ref": "#/definitions/SdkPackage"
             }
           ],
-          "description": "Context plugin configuration for the PHP SDK"
+          "description": "Published package coordinates of the PHP SDK"
         },
         "CS_NET_STANDARD_LIB": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/SdkPluginConfig"
-            }
-          ],
-          "description": "Context plugin configuration for the C# SDK"
-        },
-        "JAVA_ECLIPSE_JRE_LIB": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/SdkPluginConfig"
-            }
-          ],
-          "description": "Context plugin configuration for the Java SDK"
-        },
-        "PYTHON_GENERIC_LIB": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/SdkPluginConfig"
-            }
-          ],
-          "description": "Context plugin configuration for the Python SDK"
-        },
-        "RUBY_GENERIC_LIB": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/SdkPluginConfig"
-            }
-          ],
-          "description": "Context plugin configuration for the Ruby SDK"
-        },
-        "GO_GENERIC_LIB": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/SdkPluginConfig"
-            }
-          ],
-          "description": "Context plugin configuration for the Go SDK"
-        },
-        "TS_GENERIC_LIB": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/SdkPluginConfig"
-            }
-          ],
-          "description": "Context plugin configuration for the TypeScript SDK"
-        }
-      }
-    },
-    "SdkPluginConfig": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "PluginId": {
-          "type": "string",
-          "description": "Plugin manifest \"name\". Must be lowercase alphanumerics separated by hyphens. Default: a slug derived from the API name"
-        },
-        "PluginName": {
-          "type": "string",
-          "description": "Plugin manifest \"displayName\". Default: \"{ApiName} SDK\""
-        },
-        "PluginVersion": {
-          "type": "string",
-          "description": "Plugin manifest \"version\". This is the plugin's own version, not the SDK's. Default: 0.1.0"
-        },
-        "Author": {
-          "oneOf": [
-            {
-              "type": "null"
-            },
-            {
-              "$ref": "#/definitions/PluginAuthor"
-            }
-          ],
-          "description": "Plugin author. Name and email resolve together: supplying a name without an email omits the email rather than inheriting the default one. Default: APIMatic"
-        },
-        "License": {
-          "type": "string",
-          "description": "Plugin manifest \"license\". Default: MIT"
-        },
-        "Homepage": {
-          "type": "string",
-          "description": "Plugin manifest \"homepage\". Default: https://www.apimatic.io"
-        },
-        "PluginRepository": {
-          "type": "string",
-          "description": "Plugin manifest \"repository\" — where the plugin itself is published. Omitted from the manifest entirely when not supplied; there is deliberately no default, since an inherited value would point every plugin at somebody else's repository."
-        },
-        "Sdk": {
           "oneOf": [
             {
               "type": "null"
@@ -157,21 +50,62 @@
               "$ref": "#/definitions/SdkPackage"
             }
           ],
-          "description": "Where the SDK this plugin documents can be obtained"
-        }
-      }
-    },
-    "PluginAuthor": {
-      "type": "object",
-      "additionalProperties": false,
-      "properties": {
-        "Name": {
-          "type": "string",
-          "description": "Author name"
+          "description": "Published package coordinates of the C# SDK"
         },
-        "Email": {
-          "type": "string",
-          "description": "Author email"
+        "JAVA_ECLIPSE_JRE_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPackage"
+            }
+          ],
+          "description": "Published package coordinates of the Java SDK"
+        },
+        "PYTHON_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPackage"
+            }
+          ],
+          "description": "Published package coordinates of the Python SDK"
+        },
+        "RUBY_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPackage"
+            }
+          ],
+          "description": "Published package coordinates of the Ruby SDK"
+        },
+        "GO_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPackage"
+            }
+          ],
+          "description": "Published package coordinates of the Go SDK"
+        },
+        "TS_GENERIC_LIB": {
+          "oneOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/definitions/SdkPackage"
+            }
+          ],
+          "description": "Published package coordinates of the TypeScript SDK"
         }
       }
     },
@@ -193,7 +127,7 @@
         },
         "Url": {
           "type": "string",
-          "description": "Direct download or registry URL for the package. When present it becomes the install command the plugin's skills instruct against."
+          "description": "Direct download or registry URL for the package. When present it becomes the install command the generated skills instruct against."
         }
       }
     }
