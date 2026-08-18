@@ -125,6 +125,10 @@
           "type": "string",
           "description": "Publisher scope of the package id, for the languages whose id is a pair: Maven's groupId in Java, Composer's vendor in PHP. Ignored by TypeScript, Python, Ruby and C#, whose package id is a single name. Default: the group the generator derives from the build"
         },
+        "Version": {
+          "type": "string",
+          "description": "Published version of the package. Overrides the version derived from the build, for the same reason Name does: the derived value is whatever the build produced, not necessarily what was released. Load-bearing in Java, where a dependency is the groupId:artifactId:version triple, so a wrong version there is a dependency that fails to resolve rather than a cosmetic error. Taken verbatim, like Name: a configured value is not reshaped, including in C#, where the generated project itself uses a four-part Major.Minor.Patch.0 version. Default: the version derived from the build"
+        },
         "Url": {
           "type": "string",
           "description": "Direct download or registry URL for the package. When present it becomes the install command the generated skills instruct against."
